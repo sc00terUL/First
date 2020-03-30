@@ -1,0 +1,17 @@
+[2020-03-30]
+Notes: enhancement notes for CRM API from Slack chat with Derek
+Ideas: We need to do some clean-up to the CRM API to make it ready to test
+
+- guessing you can even pick a subscription and look at the logs for that subscription?
+- all the azure management stuff is going to have to hold off a bit
+- i think that all that is left for now is to create some tests and to really test out different things users could put in to test validation and all that and make it polished
+- we need to have correct response if they don’t enter team-id or it’s an invalid one. some sort of 400 i’d think. we’ll also eventually need 402 if their token doesn’t match.
+     but what if elasticsearch is down or messed up? that would return false from  query-activity (or maybe it would throw exception)
+- validate everything the user is responsible for b4 calling query-activity and return appropriate response. then when we call query-activity if that returns false it is almost
+     definitely on our end. i kinda think we have to return 500 on csv. on json, we can return 200 / success: false if that’s what the old api is doing though as a user i’d 
+     probably prefer a 500
+-  changing the service uri that you use for creating the links to a config setting
+    - adding those to config.clj and using them
+    - will want to add it to the config/app-env and use it from there
+
+Action Items:

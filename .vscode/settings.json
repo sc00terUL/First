@@ -1,0 +1,9 @@
+"emeraldwalk.runonsave": {
+    "commands": [
+         {
+            "match": ".notes",
+            "isAsync": true,
+            "cmd": "./.auto/commit.sh"
+         }
+    ]
+}
